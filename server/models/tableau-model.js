@@ -34,5 +34,6 @@ const Tableau = new Schema(
 )
 
 // to export this Tableau schema...
-module.exports = mongoose.model('tableaus', Tableau)
+// embedded_tableaus is the name of the COLLECTION that Mongoose will give to MongoDB
+module.exports = mongoose.model('embedded_tableaus', Tableau)
 
