@@ -39,9 +39,7 @@ createTableau = (req, res) => {
 
 getTableauById = async (req, res) => {
     await Tableau.findOne(
-        // {letter_pair: req.params.letter_pair},
-        // When I hard-code letter_pair here, it works!! So something is broken before that
-        {letter_pair: 'GB'},
+        {letter_pair: req.params.id.toUpperCase()},
         (err, tableau) => {
             if (err) {
                 return res.status(400).json({success: false, error: err})
