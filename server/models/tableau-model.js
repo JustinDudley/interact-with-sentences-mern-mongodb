@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const Tableau = new Schema(
+
+const TableauSchema = new mongoose.Schema(
     {
         letter_pair: { type: String, required: true },
         starter_sentence: { type: String, required: true },
@@ -33,7 +33,9 @@ const Tableau = new Schema(
     { timestamps: true }
 )
 
-// to export this Tableau schema...
-// embedded_tableaus is the name of the COLLECTION that Mongoose will give to MongoDB
-module.exports = mongoose.model('embedded_tableaus', Tableau)
+// embedded_tableaus is the COLLECTION name
+const Tableau = mongoose.model('embedded_tableaus', TableauSchema)
+
+// to export this Tableau...
+module.exports = Tableau
 

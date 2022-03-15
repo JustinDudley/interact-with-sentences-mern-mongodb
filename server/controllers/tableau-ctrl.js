@@ -55,6 +55,17 @@ getTableauById = async (req, res) => {
         }).catch(err => console.log(err))
 }
 
+// postComment = async (req, res) => {
+//     const body = req.body
+
+//     if (!body) {
+//         return res.status(400).json({
+//             success: false,
+//             error: "You must provide a comment"
+//         })
+//     }
+// }
+
 module.exports = {
     createTableau,
     getTableauById,
