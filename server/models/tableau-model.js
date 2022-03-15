@@ -33,5 +33,6 @@ const Tableau = new Schema(
     { timestamps: true }
 )
 
+// to export this Tableau schema...
 module.exports = mongoose.model('tableaus', Tableau)
 
