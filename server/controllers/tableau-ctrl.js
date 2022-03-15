@@ -9,7 +9,7 @@ createTableau = (req, res) => {
             error: 'You must provide a tableau'
         })
     }
-
+    // could also say: const tableau = new Tableau({"letter_pair": "AB", "sentence": "...", ... ...})
     const tableau = new Tableau(body)
 
     if (!tableau) {
@@ -65,6 +65,14 @@ getTableauById = async (req, res) => {
 //         })
 //     }
 // }
+
+
+// The following block logs ALL sentences to the console:
+// const myFunc = async () => {
+//     const all_tableaus = await Tableau.find()
+//     console.log(all_tableaus)
+// }
+// myFunc()
 
 module.exports = {
     createTableau,
