@@ -16,9 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+db.on('error', console.error.bind(console, 'MongoDB connection error yo:'))
 
-app.get('/', (req, res) => {res.send('Hello World')})
+app.get('/', (req, res) => {/* return */ res.send('Hello World')})
 
 app.use('/api', tableauRouter)
 
