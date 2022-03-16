@@ -92,10 +92,9 @@ postComment = async (req, res) => {
             }}
     )
     .catch(err => console.log(err))
-    console.log("letter_pair to update is: ", req.params.id )
 }
 
-// The following block logs ALL sentences to the console:
+// KEEP: The following block logs ALL sentences to the console:
 // const myFunc = async () => {
 //     const all_tableaus = await Tableau.find()
 //     console.log(all_tableaus)
