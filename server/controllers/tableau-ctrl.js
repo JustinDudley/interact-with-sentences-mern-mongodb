@@ -64,8 +64,7 @@ getTableauById = async (req, res) => {
 postComment = async (req, res) => {
     const body = req.body
 
-    // This is doing nothing:
-    if (!body) {
+    if (Object.keys(body).length === 0) {
         return res.status(400).json({
             success: false,
             error: "You must provide a comment"
@@ -75,19 +74,21 @@ postComment = async (req, res) => {
     await Tableau.updateOne(
         {letter_pair: req.params.id},
         { $push: { comments: req.body.comment }},
-        (error, successObj) => {
+        (error, mongoSuccessObj) => {
             // Can trigger this response to postman by turning off Wi-Fi
             if (error) {
                 return res.status(400).json({success: false, error: error})
 
+            } else if (mongoSuccessObj?.matchedCount === 0) {
+                return res.status(404).json({
+                    success: false,
+                    errorFromBE: "The database does not contain that letter_pair. Did you request 3 letters instead of 2, or use a number instead of a letter?",
+                    mongoSuccessObj: mongoSuccessObj
+                })
             } else {
-                // if succesObj.matchedCount === 0, return some error message.
-                // that means the asked-for letter_pair doesn't exist
-                console.log('yesssss ', successObj);
                 return res.status(200).json({ 
                     success: true, 
-                    myComment: "at least I think so...", 
-                    successObj: successObj
+                    mongoSuccessObj: mongoSuccessObj
                 })
             }}
     )
