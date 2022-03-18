@@ -7,7 +7,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
-const apiPort = 3000
+const apiPort = 8000
 
 const db = require('./db')
 const tableauRouter = require('./routes/tableau-router')
